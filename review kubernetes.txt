@@ -1,0 +1,63 @@
+what is kubernetes?
+- container orchestration tool which controls and manages every container and actions performed on and inside it .
+- schedules containers for high availability 	
+-eg maestro 
+#features:
+- service discovery and load balancing
+- horizontal scaling
+- self healing with user definedd healt checks
+- automated rollout and rollback
+- secrets and configuration management
+- operators
+
+what is container?
+(segregated user-space env for running applications isolated from other applications sharing same os)
+- set of processes isolated from hardware 
+- a bundle of packages of libraries and dependencies required to run a particular application
+- it consist of a base image which has minimum os to run the packages .
+- image has required configuration.
+- vroom,
+#features: 
+1. namespace - isolates resources.
+
+2. controlgroups- limit amount of resources container can consume.
+
+3. secomp - limits how processes could use system calls 
+-  It provides a way to restrict the system calls that containerized applications can make, reducing their attack surface and minimizing the potential for security vulnerabilities
+- a. System Call Filtering: Seccomp allows you to create policies that specify which system calls are permitted and which are denied for a particular process. By default, all system calls are allowed, but you can create a whitelist or blacklist of allowed or denied calls.
+
+- b. Fine-Grained Control: Seccomp policies provide fine-grained control over system calls. This means you can specify which specific system calls are allowed or denied, rather than applying a broad filter to all calls. This fine-grained control minimizes the attack surface and reduces the risk of exploitation.
+
+4. selinux - protect processes from eachother and host machine from running its processes
+container(dish)-------->image(recipe)--------->image repo(recipe book-container catalog,quay,dockerhub)
+explain architecture of kubernetes?
+
+MASTER NODE:
+what is apiserver? - entrypoint
+what is etcd? - database
+Is etcd a service or a pod?
+can we use etcd from outside the cluster?
+what is schedular?what are the algorithms used by schedular?
+what is filtering and scoring?
+what is controller?
+
+
+WORKER NODE:
+what is Kubelet?
+what is kube-proxy?
+what is container-runtime?
+what is container engine?
+
+
+limitations of container gave birth to kubernetes
+what is reuirement of enterprise?
+- easy communication between large number of services 
+- resource limits of applicationresources regardless of how many containers are running them.
+- respond to application usage spikes to increase or decrease running containers.
+- to react to service detirioration by running health checks
+- gradual roll out of newrelease to a set of users
+
+
+
+
+

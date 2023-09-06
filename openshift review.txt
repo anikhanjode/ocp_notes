@@ -1,0 +1,69 @@
+CONTAINER NAME IMAGE SYNTAX : registry_name/ user_name/image_name:tag
+
+DOCKERFILE:
+FROM rhel8.8
+LABEL
+MAINTAINER 
+RUN
+EXPOSE
+ENV 
+ADD 
+COPY
+USER
+ENTRYPOINT
+CMD
+
+Persistent volumes:
+- storage areas to be used by kubernetes pods
+Persistent volume claims:
+- Represent a request for storageby a pod
+
+configmap was introduced to manage configurations i.e assume there are multiple pods which require configuration settings like strings , api keys,env vars, etc. Instead of hardcoding these values into each pod's configuration, you can create a ConfigMap that holds these values as key-value pairs. Then, the pods can reference the ConfigMap to access the required configuration data.
+
+
+configmaps and secrets:
+contains a set of keys and values that can be used by other resources. HERE, resources means that the key-value pair stored in confgmaps can be accessed and used by components or resources of kubernetes cluster.
+
+secrets: same as configmaps just encrypted and used for sotring sensitive information like keys a dn passwords.
+
+openshift resource types
+
+Deployment config (dc):
+represents the set of containers included in a pod and deployment stratergies to be used.
+provides basic extensible continuous delivery workflow.
+
+build config:
+defines a process to be executeed in openshift project .used by the openshift source to image S2I feature to build a container image from application source code stored in git repository
+
+
+
+COREOS && OPERATORS
+
+
+- oc login 
+- oc new-app
+- oc get 
+- oc  pods
+
+
+
+ROUTES:enables us to not only have static ip but also expose that to greate internet and we can give a dns host name to our route
+host----------->dnshostname-->router pod ----> service1 -----> pod
+
+
+
+oc new-app ---creates--->buildconfguration------>clones from git server--->to builder pod------pushes----> internal registry(application image)&& external registry(S2Ibuilder image) 
+
+S2I stream :
+it notifies build configuration if there is an updata/change or security fix added in the image and build configuration reconfigures the builder pod to run application with the issued security fix.
+
+build configuration is responsible for creating the image
+deployment configuration is responsible for taking image and creating the application pods based on that image.
+
+SOURCE TO IMAGE BENEFITS
+- user efficiency
+- patching 
+- speed 
+- ecosystem
+ 
+
